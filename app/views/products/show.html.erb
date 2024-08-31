@@ -1,0 +1,59 @@
+<h1><%= @product.title %></h1>
+<div class = "qwe">
+  <img src = "<%= @product.img_url %>" align = "middle">
+  <label for="product_description">Описание товара:</label>
+    <p class ="my-2">
+      <span id="product_description" >
+      <%= @product.body %> 
+      </span>
+    </p>
+</div>
+
+<div class = "pen">
+  <label for="product_quantity">Количество:</label>
+    <p>
+      <span id="product_quantity" >
+      <%= @product.quantity %> 
+      </span>
+    </p>
+</div>
+
+<div class = "qwer">
+  <label for="product_price">Цена:</label>
+  <p>
+    <span id="product_price" >
+    <%= @product.price %>$
+    </span>
+  </p>
+</div>
+
+<div class="category_info">
+  <label for="product_category">Категории:</label>
+  <p>
+    <span id="product_category">
+      <% if @product.categories.any? %>
+        <% @product.categories.each do |category| %>
+          <%= category.name %><br>
+        <% end %>
+      <% else %>
+        Категории не указаны
+      <% end %>
+    </span>
+  </p>
+</div>
+
+<%= link_to "Edit", edit_product_path(@product), class: 'btn btn-primary' %>
+
+<%= link_to "Delete", product_path(@product), data: {
+    method: :delete,
+    confirm: "Уверены?"
+}, class: 'btn btn-danger'%> 
+
+
+
+<h2>Отзывы:</h2>
+<%= render 'comments/comment' %>
+
+
+<h2>Добавить отзыв:</h2>
+<%= render 'comments/form' %>

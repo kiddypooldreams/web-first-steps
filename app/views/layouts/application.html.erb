@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'products', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+  <body>
+    <nav>
+      <ul>
+        <li> <%= link_to "Товары", root_path %> </li>
+          <li> <%= link_to "Категории", categories_path %>
+        <li> <%= link_to "Добавить товар", new_product_path %> </li>
+        <% if user_signed_in?%>
+        <li>
+          <%= link_to 'Мой профиль', edit_user_registration_path %>
+        </li>
+        <li>
+
+        </li>
+        <%= link_to 'Привязать Telegram-аккаунт', bind_telegram_path, method: :post %>  
+          <li>
+            <%= link_to "Выход", destroy_user_session_path, method: :delete%>
+          </li>
+        <%else%>
+            <li>
+              <a href ="<%= new_user_session_path %>"> Вход </a>
+            </li>
+            <li>
+              <a href ="<%= new_user_registration_path %>"> Регистрация </a>
+            </li>
+        <%end%>
+      </ul>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

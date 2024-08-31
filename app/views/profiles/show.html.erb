@@ -1,0 +1,50 @@
+<%= form_for(@user, url: profile_path, method: :patch) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "ошибка") %> запрещают сохранение профиля:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password, 'Текущий пароль' %>
+    <%= f.password_field :current_password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, 'Подтверждение пароля' %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  
+
+  <div class="actions">
+    <%= f.submit 'Сохранить' %>
+  </div>
+
+  
+
+<% end %>
+
+
+<%= link_to 'Привязать Telegram-аккаунт', bind_telegram_path, method: :post %>

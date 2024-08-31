@@ -1,0 +1,17 @@
+<h1>Товары в категории <%= @category.name %></h1>
+
+    <div class="products">
+    <% @products.each do |product| %>
+        <div class="product-block">
+        <% if product.img_url.present? %>
+            <%= link_to product, class: "product-image-link" do %>
+            <%= image_tag(product.img_url, alt: product.title) %>
+            <% end %>
+        <% else %>
+            <%= link_to("Изображение отсутствует", product) %>
+        <% end %>
+            <p><%= truncate strip_tags(product.body), length: 20 %></p>
+        </div>
+    <% end %>
+</div>
+  

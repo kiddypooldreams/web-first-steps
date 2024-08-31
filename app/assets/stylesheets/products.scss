@@ -1,0 +1,125 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* products.css */
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+.product-image-link:hover {
+  
+  border: 0.1px solid #ffffff;
+  
+}
+
+.products {
+  display: flex; /* Используем flexbox для расположения блоков */
+  flex-wrap: wrap; /* Переносим блоки на новую строку при достижении ширины контейнера */
+  gap: 20px; /* Расстояние между блоками товаров */
+}
+
+.product-block img{
+  flex: 0 0 calc(33.33% - 20px); /* Размер каждого блока - 33.33% ширины контейнера (с учетом промежутков) */
+  
+  padding: 10px; /* Пример отступа внутри блока товара */
+  width: 200px; /* Задаем фиксированную ширину */
+  height: auto;
+  
+}
+
+
+
+nav {
+ 
+  
+  height: 44px;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  li {
+      float: left;
+  }
+
+  li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+  }
+
+  li a:hover {
+    background-color: #111;
+  }
+}
+form {
+
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 400px;
+    margin: 0 auto;
+
+  
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+}
+.qwe {
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  p {
+    margin-top: 0;
+  }
+  
+  span {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 5px;
+    min-height: 50px; /* Высота по вашему усмотрению */
+    width: 50%; /* Ширина по вашему усмотрению */
+  }
+}  
+
+.search {
+    padding: 1%;
+}
